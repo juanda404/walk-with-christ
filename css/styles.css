@@ -1,0 +1,1183 @@
+:root {
+    /* Colores base extraídos de la imagen */
+    --color-fondo: #F4F1EA;
+    /* Crema suave y cálido que se ve en el background general */
+    --color-texto-dark: #0F1E36;
+    /* Azul marino profundo (casi negro) usado en títulos y menús */
+    --color-oro-bronce: #C5A880;
+    /* Tono oro/bronce sagrado para la cruz y acentos importantes */
+
+    /* Colores adicionales para botones y contenedores */
+    --color-primary-button: #0C1E3A;
+    /* El color azul oscuro del botón "Unirme al camino" */
+    --color-primary-button-hover: #05101f;
+    --color-blanco: #FFFFFF;
+    /* Para las tarjetas y contenedores limpios */
+    --color-texto-secundario: #555555;
+    /* Gris para textos de párrafos legibles */
+
+    /* NUEVO: grises que estaban sueltos por el archivo sin variable */
+    --color-gris-medio: #666666;
+    --color-gris-suave: #888888;
+    --color-gris-claro-linea: #E6DFD3;
+    /* línea del divider-cross */
+    --color-icono-bg: #F0EADF;
+    --color-prayer-card-bg: #FAF6F0;
+
+    /* NUEVO: tipografías repetidas como string literal, ahora en variable */
+    --font-titulo: 'Playfair Display', serif;
+    --font-cuerpo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* NUEVO: valores que se repetían igual en varias tarjetas */
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.02);
+    --card-max-height: 340px;
+    --section-padding: 1rem 6%;
+    --radius-card: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Clave: evita que los bordes sumen tamaño al contenedor */
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto-secundario);
+    font-family: var(--font-cuerpo);
+}
+
+.container {
+    display: grid;
+    max-width: 1024px;
+    margin: 0 auto;
+    /* minmax evita que el header/footer colapsen si el texto es grande */
+    /* 1fr (fracción) toma TODO el espacio restante de forma dinámica */
+    grid-template-rows: minmax(60px, auto) 1fr minmax(60px, auto);
+    /* min-height en vez de height fijo. Si hay mucho contenido, la página crece y no se rompe */
+    min-height: 100vh;
+    width: 100%;
+    /* Evita bugs de scroll horizontal que a veces da el 100vw con el scrollbar */
+}
+
+/* Eliminado: .item { border: 5px solid #00bcd4; }
+   Era una regla de debug (borde cian) que no aportaba nada al diseño final.
+   Si la seguís usando en el HTML y la necesitás, avisame y la recupero. */
+
+/* ==========================================================================
+   HEADER / NAVIGATION SHIELD
+   ========================================================================== */
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    /* Envía el logo a la izquierda y el menú a la derecha */
+    align-items: center;
+    /* Centra verticalmente el logo y los enlaces */
+    padding: var(--section-padding);
+    background-color: var(--color-fondo);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Sombra sutil inferior */
+}
+
+/* Por defecto en Desktop: Ocultamos el botón de hamburguesa */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-texto-secundario);
+}
+
+/* El contenedor del menú (nav) */
+.header-nav-menu {
+    /* Ancho máximo para que en pantallas gigantes los enlaces no se dispersen demasiado */
+    max-width: 700px;
+    width: 100%;
+}
+
+.header-nav-menu ul {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea los enlaces hacia la derecha */
+    gap: 2rem;
+    list-style: none;
+    /* Mata los puntos negros por defecto de la lista (•) */
+}
+
+.header-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    /* Evita que la imagen se estire feo o se pixele */
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.header-nav-menu a {
+    text-decoration: none;
+    color: var(--color-texto-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-nav-menu a:hover {
+    color: var(--color-oro-bronce);
+}
+
+
+/* ==========================================================================
+   HERO / SECTION MAIN
+   ========================================================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left,
+            transparent 45%,
+            rgba(255, 255, 255, .85) 75%,
+            #ffffff 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            var(--color-fondo) 0%,
+            rgba(247, 242, 234, .98) 25%,
+            rgba(247, 242, 234, .70) 45%,
+            rgba(247, 242, 234, .25) 60%,
+            transparent 80%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    padding-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Espaciado uniforme entre los elementos (H1, P, Botones) */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto-dark);
+    font-family: var(--font-titulo);
+}
+
+.hero-content h1 span {
+    color: var(--color-oro-bronce);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-texto-secundario);
+    max-width: 90%;
+    /* Evita que el texto se estire demasiado a lo ancho */
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* NUEVO: base compartida por TODOS los botones "dark" del sitio
+   (antes .hero-buttons button:first-child y .btn-dark tenían las
+   mismas 6 propiedades duplicadas). Ahora se agrupan acá y cada uno
+   solo agrega lo que lo hace distinto (flecha, tamaño, hover). */
+.hero-buttons button,
+.btn-dark {
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-cuerpo);
+}
+
+.hero-buttons button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    text-transform: none;
+}
+
+.hero-buttons button:first-child,
+.btn-dark {
+    background-color: var(--color-primary-button);
+    color: var(--color-blanco);
+    border: none;
+}
+
+.hero-buttons button:first-child:hover,
+.btn-dark:hover {
+    background-color: var(--color-primary-button-hover);
+}
+
+.hero-buttons button:first-child::after {
+    content: " \2192";
+    /* Flecha -> */
+    margin-left: 0.5rem;
+    font-weight: bold;
+}
+
+.hero-buttons button:last-child {
+    background-color: transparent;
+    color: var(--color-texto-dark);
+    border: 2px solid var(--color-texto-dark);
+}
+
+.hero-buttons button:last-child:hover {
+    background-color: rgba(15, 30, 54, 0.05);
+    border-color: var(--color-primary-button);
+}
+
+.hero-content p:last-child {
+    font-size: 0.9rem;
+    color: #777;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-content p:last-child::before {
+    content: "\2764";
+    /* Corazón negro relleno ❤ */
+    color: #333;
+    font-size: 1.1rem;
+}
+
+
+/* ==========================================================================
+   FEATURE SECTION / TU CAMINO DIARIO CON DIOS
+   ========================================================================== */
+
+.feature {
+    padding: var(--section-padding);
+    background-color: var(--color-fondo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.feature h2 {
+    font-family: var(--font-titulo);
+    color: var(--color-texto-dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.feature-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.icon-container {
+    background-color: var(--color-icono-bg);
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    /* Evita que el contenedor del icono se aplaste si el texto es largo */
+}
+
+.icon-container img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.card-text h3 {
+    color: var(--color-texto-dark);
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: var(--font-cuerpo);
+}
+
+.card-text p {
+    color: var(--color-gris-medio);
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   DAILY FEATURED SECTION (HOY ES UN NUEVO DÍA / ORACIÓN)
+   ========================================================================== */
+.content-featured {
+    padding: var(--section-padding);
+    background-color: var(--color-fondo);
+    display: grid;
+    grid-template-columns: 2.1fr 1fr;
+    /* Distribución asimétrica: 68% para la tarjeta grande, 32% para la oración */
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.main-card-wrapper {
+    background-color: var(--color-blanco);
+    border-radius: var(--radius-card);
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-card);
+    max-height: var(--card-max-height);
+}
+
+.content-card {
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    /* Por encima del desvanecimiento */
+}
+
+.card-image-bg {
+    width: 50%;
+    position: relative;
+}
+
+.card-image-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-image-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--color-blanco) 0%, rgba(255, 255, 255, 0) 40%);
+    z-index: 1;
+}
+
+/* LIMPIEZA: acá había 6 redefiniciones sucesivas de .divider-cross
+   (cada una un intento distinto para lograr "línea - cruz - línea").
+   Solo la última se aplicaba realmente por cascada; el resto era
+   código muerto. Se deja una única definición, funcional y clara. */
+.divider-cross {
+    text-align: center;
+    position: relative;
+    height: 20px;
+    margin: 0.5rem 0;
+}
+
+.divider-cross::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-gris-claro-linea);
+    z-index: 1;
+}
+
+.divider-cross::after {
+    content: "\2020";
+    /* Cruz superpuesta que tapa la línea al centro */
+    position: relative;
+    z-index: 2;
+    background-color: var(--color-blanco);
+    padding: 0 10px;
+    color: var(--color-oro-bronce);
+    font-size: 1.2rem;
+    font-family: var(--font-titulo);
+}
+
+.content-card h3,
+.content-prayer-day h3 {
+    font-family: var(--font-titulo);
+    color: var(--color-texto-dark);
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.content-card blockquote {
+    font-size: 0.95rem;
+    color: var(--color-texto-dark);
+    line-height: 1.4;
+    font-style: normal;
+    margin-bottom: 0.4rem;
+}
+
+.scripture-source {
+    font-size: 0.85rem;
+    color: var(--color-gris-suave);
+    margin-bottom: 1.2rem;
+}
+
+/* Botón estilizado idéntico al Hero (props compartidas ahora arriba, ver .btn-dark) */
+.btn-dark {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
+    align-self: flex-start;
+    /* Evita que el botón se estire a lo ancho */
+}
+
+.content-prayer-day {
+    background-color: var(--color-blanco);
+    border-radius: var(--radius-card);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-card);
+    max-height: var(--card-max-height);
+}
+
+.content-prayer-day p {
+    color: var(--color-texto-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: auto 0;
+    /* Centra el bloque verticalmente */
+}
+
+.bottom-cross::before {
+    content: "\2020";
+    color: var(--color-oro-bronce);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   POPULAR PRAYERS SECTION (ORACIONES POPULARES)
+   ========================================================================== */
+.popular-prayers {
+    padding: 3rem 6%;
+    background-color: var(--color-fondo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.popular-prayers h2 {
+    font-family: var(--font-titulo);
+    color: var(--color-texto-dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.prayers-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.prayer-card {
+    background-color: var(--color-prayer-card-bg);
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.prayer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.prayer-card img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.prayer-card p {
+    color: var(--color-texto-dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: var(--font-cuerpo);
+    text-align: center;
+    white-space: nowrap;
+    /* Evita que el texto se rompa en dos líneas si es corto */
+}
+
+.popular-prayers .btn-dark {
+    display: flex;
+    /* necesario para que align-items funcione */
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    /* pisa el align-self: flex-start heredado, si lo querés centrado en el eje del padre */
+}
+
+/* ==========================================================================
+   RESOURCES AND BLOG SECTION
+   ========================================================================== */
+
+.resources-blog {
+    padding: 2rem 6%;
+    background-color: var(--color-fondo);
+    display: grid;
+    /* Repartición asimétrica: 58% para recursos, 42% para blog */
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* --- ESTILOS COMPARTIDOS POR AMBOS CONTENEDORES GRANDES --- */
+.resource-container,
+.blog-container {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+}
+
+.resource-container h2,
+.blog-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-texto-dark);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* --- BLOQUE RECURSOS (IZQUIERDA - VERTICAL) --- */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas perfectas */
+    gap: 1rem;
+}
+
+.resource-item {
+    background-color: var(--color-blanco);
+    border: 1px solid #F5EFE6;
+    /* Borde ultra sutil para simular la tarjeta interna */
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    /* Recorta la foto sin deformarla */
+}
+
+.resource-text {
+    padding: 1rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.resource-text h3 {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--color-texto-dark);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.resource-text p {
+    color: #777777;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* --- BLOQUE BLOG (DERECHA - HORIZONTAL) --- */
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.blog-link {
+    color: var(--color-texto-dark);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.blog-item {
+    display: flex;
+    /* Alinea imagen a la izquierda, texto a la derecha */
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    align-items: center;
+}
+
+.blog-item:last-of-type {
+    margin-bottom: 0;
+    /* Quita el margen al último para que no rompa el padding */
+}
+
+.blog-img-wrapper {
+    width: 100px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    /* Evita que el contenedor de la imagen colapse */
+}
+
+.blog-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.blog-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.blog-text h3 {
+    color: var(--color-texto-dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.blog-text p {
+    color: #666666;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.blog-item-date {
+    font-size: 0.78rem !important;
+    color: #999999 !important;
+    margin-top: 0.1rem;
+}
+
+/* ==========================================================================
+   NEWSLETTER SECTION
+   ========================================================================== */
+
+.newsletter {
+    background-color: #0F1E36;
+    /* Azul oscuro profundo idéntico a la UI */
+    border-radius: 16px;
+    padding: 2.5rem 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    /* Empuja textos a la izquierda y form a la derecha */
+    align-items: center;
+    max-width: 1100px;
+    margin: 2rem auto;
+    /* Separa de la sección anterior y centra en la pantalla */
+    gap: 2rem;
+}
+
+/* Contenedor izquierdo: Icono + Textos */
+.newsletter-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    /* Permite que tome el espacio disponible de forma fluida */
+}
+
+.newsletter-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+    /* Evita que el icono se deforme */
+}
+
+.newsletter-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.newsletter-text h3 {
+    color: var(--color-blanco);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.newsletter-text p {
+    color: #BACAD6;
+    /* Gris azulado claro para excelente legibilidad sobre fondo oscuro */
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 420px;
+    /* Evita que el párrafo se estire demasiado */
+}
+
+/* Contenedor derecho: Formulario */
+.newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* Espaciado entre el input y el botón */
+    flex-shrink: 0;
+}
+
+/* El campo de texto para el correo */
+#newsletter-email {
+    background-color: var(--color-blanco);
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+    width: 320px;
+    /* Ancho fijo para mantener la proporción de la maqueta */
+    color: var(--color-texto-dark);
+    outline: none;
+}
+
+#newsletter-email::placeholder {
+    color: #999999;
+}
+
+/* Botón dorado / bronce */
+.btn-gold {
+    background-color: #D4A343;
+    /* Dorado ocre de la imagen */
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-gold:hover {
+    background-color: #B8872F;
+    /* Oscurece sutilmente al pasar el cursor */
+}
+
+.newsletter-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    /* HACK: Convierte el icono negro a blanco de forma nativa */
+    filter: invert(100%) brightness(200%);
+}
+
+/* ==========================================================================
+   FOOTER COMPONENT
+   ========================================================================== */
+
+footer {
+    background-color: var(--color-fondo);
+    /* Crema de fondo */
+    padding: 1rem 6% 1rem 6%;
+    border-top: 1px solid #F0EAE1;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Contenedor Grid para distribuir las 5 columnas */
+.footer-container {
+    display: grid;
+    /* La primera y última columna toman más espacio; las del medio son iguales */
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr 1.4fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* --- COLUMNA 1: LOGO Y TEXTO --- */
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.brand-header img {
+    height: 35px;
+    width: auto;
+}
+
+.brand-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-texto-dark);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.footer-brand p {
+    color: #666666;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    max-width: 240px;
+}
+
+/* --- COLUMNAS 2 y 3: LISTAS DE ENLACES --- */
+.footer-col h4 {
+    color: var(--color-texto-dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-col ul li a {
+    color: #666666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--color-oro-bronce);
+}
+
+/* --- COLUMNA 4: REDES SOCIALES --- */
+.social-links {
+    flex-direction: row !important;
+    /* Rompe la lista vertical a horizontal */
+    gap: 1rem !important;
+}
+
+.social-links img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.15);
+}
+
+/* --- COLUMNA 5: CITA CON MARCA DE AGUA --- */
+.footer-quote {
+    position: relative;
+    /* Base para posicionar la cruz de fondo */
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-texto-dark);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-style: italic;
+    z-index: 2;
+    /* Por encima de la cruz */
+    max-width: 280px;
+}
+
+.quote-author {
+    font-size: 0.85rem;
+    color: #888888;
+    margin-top: 0.4rem;
+    z-index: 2;
+}
+
+/* El hack de la marca de agua con la cruz */
+.watermark-cross {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    height: 140px;
+    width: auto;
+    opacity: 0.04;
+    /* Opacidad ultra baja para que simule el fondo de la imagen */
+    pointer-events: none;
+    /* Evita que estorbe al clickear texto */
+    z-index: 1;
+}
+
+/* --- BARRA INFERIOR DE COPYRIGHT --- */
+.footer-bottom {
+    margin-top: 1rem;
+    border-top: 1px solid #EAE3D8;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.footer-bottom small {
+    color: #999999;
+    font-size: 0.8rem;
+}
+
+
+
+
+/* ==========================================================================
+   MEDIA QUERY: PANTALLAS MENORES A 780px (Tablets y Móviles)
+   ========================================================================== */
+@media (max-width: 780px) {
+
+    .menu-toggle {
+        display: block;
+        max-width: 320px;
+    }
+
+    .header-nav-menu {
+        display: none;
+        /* Oculto por defecto hasta que pinchen la hamburguesa */
+        max-width: 320px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-fondo);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        /* Asegura que quede por encima de las imágenes del main */
+    }
+
+    .header-nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+    }
+
+    /* Clase utilitaria para cuando el menú esté activo (se activa con JavaScript) */
+    .header-nav-menu.active {
+        display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .prayers-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .resources-blog {
+        grid-template-columns: 1fr;
+        /* Colapsa a una sola columna vertical */
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+        /* Pasa a 3 columnas en tablets */
+        gap: 3rem 1.5rem;
+    }
+
+    .footer-quote {
+        grid-column: span 2;
+        /* La cita se estira para ocupar espacio libre */
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .watermark-cross {
+        right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .prayers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .prayer-card {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        /* Una sola columna en celulares */
+        gap: 2rem;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .brand-header,
+    .footer-quote {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-quote {
+        grid-column: span 1;
+    }
+
+    .watermark-cross {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .content-featured {
+        grid-template-columns: 1fr;
+        /* Colapsa a una sola columna en pantallas pequeñas */
+    }
+
+    .main-card-wrapper {
+        flex-direction: column;
+    }
+
+    .content-card,
+    .card-image-bg {
+        width: 100%;
+    }
+
+    .card-image-bg {
+        height: 250px;
+    }
+
+    .card-image-bg::before {
+        background: linear-gradient(to bottom, var(--color-blanco) 0%, rgba(255, 255, 255, 0) 50%);
+    }
+}
+
+@media (max-width: 650px) {
+    .resources-grid {
+        grid-template-columns: 1fr;
+        /* Tarjetas de recursos una debajo de otra en celulares */
+    }
+
+    .blog-item {
+        flex-direction: column;
+        /* El ítem del blog se vuelve vertical en pantallas muy chicas */
+        align-items: flex-start;
+    }
+
+    .blog-img-wrapper {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+@media (max-width: 968px) {
+    .newsletter {
+        flex-direction: column;
+        /* Se apila verticalmente en pantallas medianas */
+        text-align: center;
+        padding: 2.5rem 2rem;
+    }
+
+    .newsletter-left {
+        flex-direction: column;
+        /* Icono arriba, texto abajo */
+        justify-content: center;
+    }
+
+    .newsletter-text p {
+        max-width: 100%;
+    }
+
+    .newsletter-form {
+        width: 100%;
+        flex-direction: column;
+        /* Input y botón uno abajo del otro en móviles */
+    }
+
+    #newsletter-email {
+        width: 100%;
+        /* Toma todo el ancho disponible */
+    }
+
+    .btn-gold {
+        width: 100%;
+        /* Botón de ancho completo para facilitar clics en móviles */
+    }
+}
