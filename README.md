@@ -2,6 +2,9 @@
 
 A highly optimized, fully responsive Catholic web application landing page built with modern frontend architecture.
 
+<img width="927" height="825" alt="image" src="https://github.com/user-attachments/assets/8b6c65f6-eb64-441e-bce3-66852e988b73" />
+
+
 ## 🚀 Features
 
 - **Daily Walk with God:** Asymmetrical grid header layout featuring custom navigation cards.
