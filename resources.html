@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Walk with Cristo</title>
+    
+    <!-- 1. Estilos Globales -->
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- 2. Complemento de Recursos -->
+    <link rel="stylesheet" href="./css/resources.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HEADER / NAVBAR -->
+        <header class="item header-nav">
+            <img src="./assets/images/logo/logo.png" alt="Walk with Cristo" class="header-logo">
+            <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+            <nav class="header-nav-menu">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./prayers.html">Prayers</a></li>
+                    <li><a href="./lectio.html">Lectio Divina</a></li>
+                    <li><a href="./rosary.html">Rosary</a></li>
+                    <li><a href="./resources.html" class="active">Resources</a></li>
+                    <li><a href="https://jdsg.netlify.app/" target="_blank" rel="noopener">About me</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <section class="resources-hero">
+                <h1>Resource Center</h1>
+                <p class="resources-subtitle">Download guides, watch tutorials, and explore tools to deepen your faith.</p>
+            </section>
+
+            <!-- BARRA DE FILTROS POR CATEGORÍA -->
+            <div class="resources-filter-bar" id="filterBar">
+                <button class="filter-btn active" data-filter="all">All Resources</button>
+                <button class="filter-btn" data-filter="pdf">PDF Guides</button>
+                <button class="filter-btn" data-filter="video">Video Lessons</button>
+                <button class="filter-btn" data-filter="external">External Links</button>
+            </div>
+
+            <!-- GRILLA DE RECURSOS -->
+            <section class="resources-dynamic-grid" id="resourcesGrid"></section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-container">
+                <!-- Columna 1: Brand -->
+                <div class="footer-col footer-brand">
+                    <div class="brand-header">
+                        <img src="./assets/images/logo/logo.png" alt="walk with Christ">
+                        <h3>Camina con Cristo</h3>
+                    </div>
+                    <p>A Catholic space for growing ever closer to God.</p>
+                </div>
+
+                <!-- Columna 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./prayers.html">Prayers</a></li>
+                        <li><a href="./lectio.html">Lectio Divina</a></li>
+                        <li><a href="./rosary.html">Rosary</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Resources -->
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://blogjdsg.netlify.app/" target="_blank" rel="noopener">Blog</a></li>
+                        <li><a href="#guides">Guides</a></li>
+                        <li><a href="#reflections">Reflections</a></li>
+                        <li><a href="https://jdsg.netlify.app/" target="_blank" rel="noopener">About me</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Social Media -->
+                <div class="footer-col">
+                    <h4>Follow me</h4>
+                    <ul class="social-links">
+                        <li><a href="#"><img src="./assets/images/icons/instagram-icon.svg" alt="Instagram"></a></li>
+                        <li><a href="#"><img src="./assets/images/icons/youtube.svg" alt="Youtube"></a></li>
+                        <li><a href="#"><img src="./assets/images/icons/github_light.svg" alt="Github"></a></li>
+                        <li><a href="#"><img src="./assets/images/icons/linkedin.svg" alt="Linkedin"></a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 5: Quote -->
+                <div class="footer-col footer-quote">
+                    <blockquote>"I can do all things through Him who strengthens me."</blockquote>
+                    <p class="quote-author">Philippians 4,13</p>
+                    <img src="./assets/images/icons/cross.png" alt="cross watermark" class="watermark-cross">
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <small>© 2026 Juan David Santamaría. Walk with Christ. All rights reserved.</small>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- MODAL DE VIDEO (Único al final del DOM) -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <button type="button" class="close-video-modal" id="closeVideoModal" aria-label="Close">&times;</button>
+            <div class="video-responsive-container" id="videoPlayerContainer">
+                <!-- iframe inyectado dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT ÚNICO MÓDULO RESOURCES -->
+    <script type="module" src="./assets/js/resources.js"></script>
+</body>
+</html>
