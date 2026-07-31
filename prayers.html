@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oraciones | Camina con Cristo</title>
+    
+    <!-- 1. Estilos Globales de la App -->
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- 2. Complemento exclusivo de esta vista -->
+    <link rel="stylesheet" href="./css/prayers.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HEADER IDENTICO AL INDEX -->
+        <header class="header-nav">
+            <a href="index.html">
+                <img src="assets/images/logo/logo.png" alt="Walk with Cristo Logo" class="header-logo">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+            <nav class="header-nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="prayers.html" class="active">Prayers</a></li>
+                    <li><a href="#lectio">Lectio Divina</a></li>
+                    <li><a href="#rosary">Rosary</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <section class="prayers-hero">
+                <h1>Santo Rosario y Oraciones</h1>
+                <p>Encuentra la plegaria adecuada para fortalecer tu espíritu en cada momento del día.</p>
+            </section>
+
+            <section class="controls-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar oración por nombre o palabra clave...">
+                    <span class="search-icon">🔍</span>
+                </div>
+
+                <div class="category-filters" id="categoryFilters">
+                    <button class="filter-btn active" data-category="ALL">Todas</button>
+                    <button class="filter-btn" data-category="Básicas">Básicas</button>
+                    <button class="filter-btn" data-category="Diarias">Diarias</button>
+                    <button class="filter-btn" data-category="Protección">Protección</button>
+                    <button class="filter-btn" data-category="Petición">Petición</button>
+                    <button class="filter-btn" data-category="Devociones">Devociones</button>
+                </div>
+            </section>
+
+            <section class="prayers-dynamic-grid" id="prayersGrid">
+                <!-- Se Inyectan con JS desde data.js -->
+            </section>
+        </main>
+
+        <!-- FOOTER IDENTICO AL INDEX -->
+        <footer>
+            <!-- ... Tu estructura de footer existente ... -->
+        </footer>
+
+    </div>
+
+    <!-- MODAL DE LECTURA -->
+    <div class="modal-overlay" id="prayerModal">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <header class="modal-header">
+                <span class="badge" id="modalCategory">Categoría</span>
+                <h2 id="modalTitle">Título</h2>
+            </header>
+            <div class="modal-body" id="modalBody"></div>
+            <footer class="modal-footer">
+                <button class="action-btn" id="copyBtn">📋 Copiar texto</button>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
