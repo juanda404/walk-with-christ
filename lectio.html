@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lectio Divina - Daily Catholic Prayer</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/lectio.css">
+  </head>
+<body class="container">
+
+  <!-- HEADER / NAVBAR -->
+    <header class="item header-nav">
+      <img
+        src="/assets/images/logo/logo.png"
+        alt="Walk with Cristo"
+        class="header-logo"
+      />
+      <!-- Botón de hamburguesa que solo se verá en pantallas chicas -->
+      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+      <nav class="header-nav-menu">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./prayers.html">Prayers</a></li>
+          <li><a href="./lectio.html">Lectio Divina</a></li>
+          <li><a href="./rosary.html">Rosary</a></li>
+          <li><a href="./resources.html">Resources</a></li>
+          <li>
+            <a href="https://jdsg.netlify.app/" target="_blank">About me</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+  <main class="lectio-main">
+    <!-- HERO SECTION -->
+    <section class="lectio-hero">
+      <span class="liturgical-badge" id="liturgical-date">Friday, XVII Week of Ordinary Time</span>
+      <h1>Lectio Divina</h1>
+      <p class="scripture-ref" id="gospel-ref">Matthew 13:54-58</p>
+    </section>
+
+    <!-- CONTAINER DE PASOS -->
+    <div class="lectio-container">
+
+      <!-- PASO 1: LECTIO -->
+      <section class="lectio-step-card">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <h2>Lectio <small>(Read)</small></h2>
+        </div>
+        <div class="step-content" id="gospel-text">
+          <p>Jesus came to his native place and taught the people in their synagogue in such a way that they were astonished and said, "Where did this man get such wisdom and mighty deeds?"</p>
+          <p>And they took offense at him. But Jesus said to them, "A prophet is not without honor except in his native place and in his own house." And he did not work many mighty deeds there because of their lack of faith.</p>
+        </div>
+      </section>
+
+      <!-- PASO 2: MEDITATIO -->
+      <section class="lectio-step-card">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <h2>Meditatio <small>(Reflect)</small></h2>
+        </div>
+        <div class="step-content">
+          <p>Take a few moments of quiet reflection. Consider these questions:</p>
+          <ul class="reflection-list" id="meditation-questions">
+            <li>What word or phrase resonates most in my heart today?</li>
+            <li>Where in my daily life am I showing a lack of faith in God's presence?</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PASO 3: ORATIO -->
+      <section class="lectio-step-card">
+        <div class="step-header">
+          <span class="step-number">3</span>
+          <h2>Oratio <small>(Pray)</small></h2>
+        </div>
+        <div class="step-content">
+          <p class="guided-prayer" id="prayer-guide">
+            "Lord, increase my faith. Help me to recognize Your wisdom in the ordinary moments and people of my life."
+          </p>
+          <div class="journal-box">
+            <label for="personal-notes">Your personal prayer / notes (saved locally):</label>
+            <textarea id="personal-notes" rows="4" placeholder="Write what you want to tell God today..."></textarea>
+            <button id="save-notes-btn" class="btn-dark">Save Note</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PASO 4: CONTEMPLATIO -->
+      <section class="lectio-step-card highlight-step">
+        <div class="step-header">
+          <span class="step-number">4</span>
+          <h2>Contemplatio & Actio <small>(Rest & Act)</small></h2>
+        </div>
+        <div class="step-content">
+          <p>Rest silently in His presence for a moment, then take this resolution into your day:</p>
+          <blockquote class="action-resolution" id="action-resolution">
+            "Today I will pray for someone in my family or workplace whom I usually find difficult to accept."
+          </blockquote>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+    <footer>
+      <!-- Contenedor principal de las 5 columnas -->
+      <div class="footer-container">
+        <!-- Columna 1: Brand -->
+        <div class="footer-col footer-brand">
+          <div class="brand-header">
+            <img src="/assets/images/logo/logo.png" alt="walk with Christ" />
+            <h3>Camina con Cristo</h3>
+          </div>
+          <p>A Catholic space for growing ever closer to God.</p>
+        </div>
+
+        <!-- Columna 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#prayers">Prayers</a></li>
+            <li><a href="#lectio">Lectio Divina</a></li>
+            <li><a href="#rosary">Rosary</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Resources -->
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a href="https://blogjdsg.netlify.app/" target="_blank">Blog</a>
+            </li>
+            <li><a href="#guides">Guides</a></li>
+            <li><a href="#reflections">Reflections</a></li>
+            <li>
+              <a href="https://jdsg.netlify.app/" target="_blank">About me</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Social Media -->
+        <div class="footer-col">
+          <h4>Follow me</h4>
+          <ul class="social-links">
+            <li>
+              <a href=""
+                ><img
+                  src="/assets/images/icons/instagram-icon.svg"
+                  alt="Instagram"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img src="/assets/images/icons/youtube.svg" alt="Youtube"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img src="/assets/images/icons/github_light.svg" alt="Github"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img src="/assets/images/icons/linkedin.svg" alt="Linkedin"
+              /></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 5: Quote con la cruz de fondo -->
+        <div class="footer-col footer-quote">
+          <blockquote>
+            "I can do all things through Him who strengthens me."
+          </blockquote>
+          <p class="quote-author">Philippians 4,13</p>
+          <!-- Imagen de la cruz posicionada en marca de agua -->
+          <img
+            src="/assets/images/icons/cross.png"
+            alt="cross watermark"
+            class="watermark-cross"
+          />
+        </div>
+      </div>
+
+      <!-- Barra de copyright inferior -->
+      <div class="footer-bottom">
+        <small
+          >© 2026 Juan David Santamaría. Walk with Christ. All rights
+          reserved.</small
+        >
+      </div>
+    </footer>
+
+</body>
+</html>
