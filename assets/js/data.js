@@ -1,67 +1,99 @@
+// assets/js/data.js
 
 export const CATEGORIES = {
-  BASIC: 'Básicas',
-  DAILY: 'Diarias',
-  PROTECTION: 'Protección',
-  PETITION: 'Petición',
-  DEVOTION: 'Devociones'
+  BASIC: 'Basic',
+  DAILY: 'Daily',
+  PROTECTION: 'Protection',
+  PETITION: 'Petition',
+  DEVOTION: 'Devotions'
 };
 
 export const PRAYERS = [
   {
-    id: 'padre-nuestro',
-    title: 'Padre Nuestro',
+    id: 'our-father',
+    title: 'Our Father (Lord\'s Prayer)',
     category: CATEGORIES.BASIC,
-    tags: ['fundamentales', 'oración del señor', 'diaria'],
-    summary: 'La oración que Jesús nos enseñó, pilar de la fe cristiana.',
+    tags: ['basic', 'lord prayer', 'daily', 'fundamental'],
+    summary: 'The prayer taught by Jesus Christ Himself, foundation of Christian faith.',
     content: [
-      'Padre nuestro, que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu reino; hágase tu voluntad en la tierra como en el cielo.',
-      'Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal. Amén.'
+      'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven.',
+      'Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.'
     ]
   },
   {
-    id: 'ave-maria',
-    title: 'Ave María',
+    id: 'hail-mary',
+    title: 'Hail Mary',
     category: CATEGORIES.BASIC,
-    tags: ['virgen maría', 'rosario', 'fundamentales'],
-    summary: 'Plegaria de salutación e intercesión a la Santísima Virgen.',
+    tags: ['basic', 'virgin mary', 'rosary', 'fundamental'],
+    summary: 'Traditional Catholic prayer asking for the intercession of the Blessed Virgin Mary.',
     content: [
-      'Dios te salve, María, llena eres de gracia, el Señor es contigo. Bendita tú eres entre todas las mujeres, y bendito es el fruto de tu vientre, Jesús.',
-      'Santa María, Madre de Dios, ruega por nosotros, pecadores, ahora y en la hora de nuestra muerte. Amén.'
+      'Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.',
+      'Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.'
     ]
   },
   {
-    id: 'san-miguel',
-    title: 'Oración a San Miguel Arcángel',
+    id: 'hail-holy-queen',
+    title: 'Hail, Holy Queen (Salve Regina)',
+    category: CATEGORIES.BASIC,
+    tags: ['basic', 'virgin mary', 'rosary', 'salve regina'],
+    summary: 'A Marian hymn and prayer traditionally recited at the end of the Rosary.',
+    content: [
+      'Hail, Holy Queen, Mother of Mercy, our life, our sweetness, and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs, mourning and weeping in this valley of tears.',
+      'Turn then, most gracious advocate, thine eyes of mercy toward us, and after this our exile, show unto us the blessed fruit of thy womb, Jesus.',
+      'O clement, O loving, O sweet Virgin Mary. Pray for us, O holy Mother of God, that we may be made worthy of the promises of Christ. Amen.'
+    ]
+  },
+  {
+    id: 'glory-be',
+    title: 'Glory Be (Doxology)',
+    category: CATEGORIES.BASIC,
+    tags: ['basic', 'trinity', 'rosary', 'doxology'],
+    summary: 'A short hymn of praise to the Holy Trinity.',
+    content: [
+      'Glory be to the Father, and to the Son, and to the Holy Spirit, as it was in the beginning, is now, and ever shall be, world without end. Amen.'
+    ]
+  },
+  {
+    id: 'saint-michael',
+    title: 'Saint Michael the Archangel Prayer',
     category: CATEGORIES.PROTECTION,
-    tags: ['protección', 'combate espiritual', 'arcángel'],
-    summary: 'Oración tradicional para pedir protección contra el mal.',
+    tags: ['protection', 'spiritual warfare', 'archangel'],
+    summary: 'Traditional prayer seeking protection against evil and spiritual harm.',
     content: [
-      'San Miguel Arcángel, defiéndenos en la lucha. Sé nuestro amparo contra la perversidad y acechanzas del demonio.',
-      'Que Dios manifieste sobre él su poder, es nuestra humilde súplica. Y tú, oh Príncipe de la Milicia Celestial, con el poder que Dios te ha conferido, arroja al infierno a Satanás y a los demás espíritus malignos que vagan por el mundo para la perdición de las almas. Amén.'
+      'Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil.',
+      'May God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, cast into hell Satan and all the evil spirits who prowl about the world seeking the ruin of souls. Amen.'
     ]
   },
   {
-    id: 'oracion-manana',
-    title: 'Oración de la Mañana',
+    id: 'morning-prayer',
+    title: 'Morning Prayer',
     category: CATEGORIES.DAILY,
-    tags: ['mañana', 'ofrecimiento', 'inicio del día'],
-    summary: 'Entrega tu jornada, tus obras y tus pensamientos a Dios al despertar.',
+    tags: ['daily', 'morning', 'offering', 'start of day'],
+    summary: 'Dedicate your day, actions, and intentions to God upon waking.',
     content: [
-      'Señor, en el silencio de este día que nace, vengo a pedirte paz, sabiduría y fuerza.',
-      'Hoy quiero mirar al mundo con ojos llenos de amor; ser paciente, comprensivo, humilde y prudente. Cierra mis oídos a toda calumnia, guarda mi lengua de toda maledicencia y que solo los pensamientos que bendicen permanezcan en mí.',
-      'Revísteme de tu belleza, Señor, y que a lo largo de este día yo te revele a los demás. Amén.'
+      'O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys, and sufferings of this day for all the intentions of Your Sacred Heart.',
+      'In union with the Holy Sacrifice of the Mass throughout the world, I offer them for the salvation of souls, the forgiveness of sins, and the reunion of all Christians. Amen.'
     ]
   },
   {
-    id: 'acto-de-contricion',
-    title: 'Acto de Contrición',
+    id: 'act-of-contrition',
+    title: 'Act of Contrition',
     category: CATEGORIES.PETITION,
-    tags: ['perdón', 'confesión', 'reconciliación'],
-    summary: 'Oración de arrepentimiento sincero por las faltas cometidas.',
+    tags: ['petition', 'forgiveness', 'confession', 'repentance'],
+    summary: 'A prayer expressing sorrow for sins and a commitment to amendment.',
     content: [
-      'Jesús, mi Señor y Redentor, yo me arrepiento de todos los pecados que he cometido hasta hoy, y me pesa de todo corazón, porque con ellos he ofendido a un Dios tan bueno.',
-      'Propongo firmemente no volver a pecar y confío en que, por tu infinita misericordia, me has de conceder el perdón de mis culpas y me has de llevar a la vida eterna. Amén.'
+      'O my God, I am heartily sorry for having offended Thee, and I detest all my sins because of Thy just punishments, but most of all because they offend Thee, my God, Who art all good and deserving of all my love.',
+      'I firmly resolve, with the help of Thy grace, to sin no more and to avoid the near occasions of sin. Amen.'
+    ]
+  },
+  {
+    id: 'fatima-prayer',
+    title: 'Fatima Prayer (O My Jesus)',
+    category: CATEGORIES.DEVOTION,
+    tags: ['devotion', 'fatima', 'rosary', 'mercy'],
+    summary: 'Prayer revealed by Our Lady of Fátima, recited after each decade of the Rosary.',
+    content: [
+      'O my Jesus, forgive us our sins, save us from the fires of hell, lead all souls to Heaven, especially those most in need of Thy mercy. Amen.'
     ]
   }
 ];
