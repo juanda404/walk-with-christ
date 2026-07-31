@@ -132,6 +132,22 @@ export const PRAYERS = [
       'Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil.',
       'May God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, cast into hell Satan and all the evil spirits who prowl about the world seeking the ruin of souls. Amen.'
     ]
+  },
+  {
+    id: 'creed',
+    title: "Apostles' Creed",
+    subtitle: 'Credo de los Apóstoles',
+    category: CATEGORIES.BASIC,
+    tags: ['basic', 'creed', 'rosary', 'fundamental'],
+    icon: './assets/images/icons/cross.png',
+    popular: false, // En 'false' para que no desplace las 5 oraciones fijas del Home
+    summary: 'A brief normative summary of Christian belief used in Catholic liturgy and prayer.',
+    content: [
+      'I believe in God, the Father almighty, Creator of heaven and earth.',
+      'And in Jesus Christ, His only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried;',
+      'He descended into hell; on the third day He rose again from the dead; He ascended into heaven, and is seated at the right hand of God the Father almighty; from there He will come to judge the living and the dead.',
+      'I believe in the Holy Spirit, the holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen.'
+    ]
   }
 
 ];

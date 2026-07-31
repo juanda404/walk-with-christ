@@ -41,6 +41,9 @@
     box-sizing: border-box;
     /* Clave: evita que los bordes sumen tamaño al contenedor */
 }
+html{
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: var(--color-fondo);
@@ -211,6 +214,7 @@ body {
 
 .hero-buttons {
     display: flex;
+    align-items: center;
     gap: 1rem;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
@@ -220,13 +224,17 @@ body {
    (antes .hero-buttons button:first-child y .btn-dark tenían las
    mismas 6 propiedades duplicadas). Ahora se agrupan acá y cada uno
    solo agrega lo que lo hace distinto (flecha, tamaño, hover). */
-.hero-buttons button,
-.btn-dark {
+.hero-buttons a,
+.btn-dark,
+.btn-secondary {
+    text-decoration: none; /* ELIMINA EL SUBRAYADO */
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: var(--font-cuerpo);
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
 }
 
 .hero-buttons button {
@@ -235,32 +243,32 @@ body {
     text-transform: none;
 }
 
-.hero-buttons button:first-child,
+.hero-buttons a:first-child,
 .btn-dark {
     background-color: var(--color-primary-button);
     color: var(--color-blanco);
     border: none;
 }
 
-.hero-buttons button:first-child:hover,
+.hero-buttons a:first-child:hover,
 .btn-dark:hover {
     background-color: var(--color-primary-button-hover);
 }
 
-.hero-buttons button:first-child::after {
+.hero-buttons a:first-child::after {
     content: " \2192";
     /* Flecha -> */
     margin-left: 0.5rem;
     font-weight: bold;
 }
 
-.hero-buttons button:last-child {
+.hero-buttons a:last-child {
     background-color: transparent;
     color: var(--color-texto-dark);
     border: 2px solid var(--color-texto-dark);
 }
 
-.hero-buttons button:last-child:hover {
+.hero-buttons a:last-child:hover {
     background-color: rgba(15, 30, 54, 0.05);
     border-color: var(--color-primary-button);
 }
@@ -316,6 +324,27 @@ body {
     gap: 1.2rem;
 }
 
+/* Estilos para envolver el link dentro del article */
+.feature-card-link {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Micro-interacción al pasar el mouse */
+.feature-card-link:hover {
+    transform: translateY(-4px);
+    background-color: var(--color-blanco);
+    box-shadow: var(--shadow-card);
+}
+
 .icon-container {
     background-color: var(--color-icono-bg);
     width: 70px;
@@ -338,6 +367,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    text-align: center;
 }
 
 .card-text h3 {
