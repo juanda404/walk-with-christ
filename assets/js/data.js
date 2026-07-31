@@ -11,9 +11,12 @@ export const CATEGORIES = {
 export const PRAYERS = [
   {
     id: 'our-father',
-    title: 'Our Father (Lord\'s Prayer)',
+    title: 'Our Father',
+    subtitle: 'Lord\'s Prayer',
     category: CATEGORIES.BASIC,
     tags: ['basic', 'lord prayer', 'daily', 'fundamental'],
+    icon: './assets/images/icons/prayer1.png',
+    popular: true,
     summary: 'The prayer taught by Jesus Christ Himself, foundation of Christian faith.',
     content: [
       'Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven.',
@@ -25,6 +28,8 @@ export const PRAYERS = [
     title: 'Hail Mary',
     category: CATEGORIES.BASIC,
     tags: ['basic', 'virgin mary', 'rosary', 'fundamental'],
+    icon: './assets/images/icons/nativity.png',
+    popular: true,
     summary: 'Traditional Catholic prayer asking for the intercession of the Blessed Virgin Mary.',
     content: [
       'Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.',
@@ -45,9 +50,12 @@ export const PRAYERS = [
   },
   {
     id: 'glory-be',
-    title: 'Glory Be (Doxology)',
+    title: 'Glory Be',
+    subtitle: 'Doxology',
     category: CATEGORIES.BASIC,
     tags: ['basic', 'trinity', 'rosary', 'doxology'],
+    icon: './assets/images/icons/pigeon.png',
+    popular: true,
     summary: 'A short hymn of praise to the Holy Trinity.',
     content: [
       'Glory be to the Father, and to the Son, and to the Holy Spirit, as it was in the beginning, is now, and ever shall be, world without end. Amen.'
@@ -58,6 +66,8 @@ export const PRAYERS = [
     title: 'Saint Michael the Archangel Prayer',
     category: CATEGORIES.PROTECTION,
     tags: ['protection', 'spiritual warfare', 'archangel'],
+    icon: './assets/images/icons/cross.png',
+    popular: true,
     summary: 'Traditional prayer seeking protection against evil and spiritual harm.',
     content: [
       'Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil.',
@@ -69,6 +79,8 @@ export const PRAYERS = [
     title: 'Morning Prayer',
     category: CATEGORIES.DAILY,
     tags: ['daily', 'morning', 'offering', 'start of day'],
+    icon: './assets/images/icons/alarm.png',
+    popular: true,
     summary: 'Dedicate your day, actions, and intentions to God upon waking.',
     content: [
       'O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys, and sufferings of this day for all the intentions of Your Sacred Heart.',
@@ -80,6 +92,8 @@ export const PRAYERS = [
     title: 'Act of Contrition',
     category: CATEGORIES.PETITION,
     tags: ['petition', 'forgiveness', 'confession', 'repentance'],
+    icon: './assets/images/icons/heart.png',
+    popular: true,
     summary: 'A prayer expressing sorrow for sins and a commitment to amendment.',
     content: [
       'O my God, I am heartily sorry for having offended Thee, and I detest all my sins because of Thy just punishments, but most of all because they offend Thee, my God, Who art all good and deserving of all my love.',
