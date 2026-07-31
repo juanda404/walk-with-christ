@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prayers | Camina con Cristo</title>
+    <title>Holy Rosary | Walk with Cristo</title>
     
-    <!-- 1. Estilos Globales de la App -->
+    <!-- 1. Estilos Globales -->
     <link rel="stylesheet" href="./css/styles.css">
     
-    <!-- 2. Complemento exclusivo de esta vista -->
-    <link rel="stylesheet" href="./css/prayers.css">
+    <!-- 2. Complemento del Rosario -->
+    <link rel="stylesheet" href="./css/rosary.css">
 </head>
 <body>
 
     <div class="container">
         
-        <!-- HEADER IDENTICO AL INDEX -->
+        <!-- HEADER / NAVBAR -->
         <header class="header-nav">
             <a href="index.html">
                 <img src="assets/images/logo/logo.png" alt="Walk with Cristo Logo" class="header-logo">
@@ -24,9 +24,9 @@
             <nav class="header-nav-menu" id="navMenu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="prayers.html" class="active">Prayers</a></li>
+                    <li><a href="prayers.html">Prayers</a></li>
                     <li><a href="#lectio">Lectio Divina</a></li>
-                    <li><a href="./rosary.html">Rosary</a></li>
+                    <li><a href="rosary.html" class="active">Rosary</a></li>
                     <li><a href="#resources">Resources</a></li>
                 </ul>
             </nav>
@@ -34,33 +34,64 @@
 
         <!-- MAIN CONTENT -->
         <main>
-            <section class="prayers-hero">
-                <h1>Holy Rosary and Prayers</h1>
-                <p>Find the right prayer to strengthen your spirit at every moment of the day.</p>
+            <section class="rosary-hero">
+                <h1>The Holy Rosary</h1>
+                <p class="rosary-subtitle">Mediate on the mysteries of salvation day by day.</p>
+                
+                <!-- SELECTOR DE MISTERIOS -->
+                <div class="mystery-selector" id="mysterySelector">
+                    <button class="mystery-btn" data-mystery="joyful">
+                        Joyful <span class="badge-today hidden" id="badge-joyful">Today</span>
+                    </button>
+                    <button class="mystery-btn" data-mystery="luminous">
+                        Luminous <span class="badge-today hidden" id="badge-luminous">Today</span>
+                    </button>
+                    <button class="mystery-btn" data-mystery="sorrowful">
+                        Sorrowful <span class="badge-today hidden" id="badge-sorrowful">Today</span>
+                    </button>
+                    <button class="mystery-btn" data-mystery="glorious">
+                        Glorious <span class="badge-today hidden" id="badge-glorious">Today</span>
+                    </button>
+                </div>
             </section>
 
-            <section class="controls-section">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Buscar oración por nombre o palabra clave...">
-                    <span class="search-icon">🔍</span>
-                </div>
-
-                <div class="category-filters" id="categoryFilters">
-                    <button class="filter-btn active" data-category="ALL">Todas</button>
-                    <button class="filter-btn" data-category="Basic">Basic</button>
-                    <button class="filter-btn" data-category="Daily">Daily</button>
-                    <button class="filter-btn" data-category="Protection">Protection</button>
-                    <button class="filter-btn" data-category="Petition">Petition</button>
-                    <button class="filter-btn" data-category="Devotions">Devotions</button>
-                </div>
+            <!-- INFORMACIÓN DEL MISTERIO SELECCIONADO -->
+            <section class="active-mystery-info" id="mysteryInfo">
+                <h2 id="mysteryTitle">Loading...</h2>
+                <p id="mysteryDescription">...</p>
             </section>
 
-            <section class="prayers-dynamic-grid" id="prayersGrid">
-                <!-- Se Inyectan con JS desde data.js -->
+            <!-- CONTENEDOR DEL STEPPER INTERACTIVO -->
+            <section class="interactive-container" id="interactiveView">
+                <article class="stepper-card">
+                    <header class="stepper-header">
+                        <span class="step-counter" id="stepCounter">Mystery 1 of 5</span>
+                        <span class="fruit-tag" id="fruitTag">Fruit: Humility</span>
+                    </header>
+                    
+                    <div class="stepper-body">
+                        <h3 id="stepTitle">1st Mystery</h3>
+                        <p class="scripture-ref" id="stepScripture">Scripture Reference</p>
+                        
+                        <div class="reflection-box" id="stepReflection">
+                            Reflection text will appear here...
+                        </div>
+
+                        <div class="current-prayer-box">
+                            <h4>Pray:</h4>
+                            <p id="currentPrayerText">Our Father, Who art in heaven...</p>
+                        </div>
+                    </div>
+
+                    <footer class="stepper-controls">
+                        <button class="stepper-btn" id="prevStepBtn" disabled>← Previous</button>
+                        <button class="stepper-btn" id="nextStepBtn">Next →</button>
+                    </footer>
+                </article>
             </section>
         </main>
 
-        <!-- FOOTER IDENTICO AL INDEX -->
+        <!-- FOOTER -->
     <footer>
         <!-- Contenedor principal de las 5 columnas -->
         <div class="footer-container">
@@ -125,20 +156,7 @@
 
     </div>
 
-    <!-- MODAL DE LECTURA -->
-    <div class="modal-overlay" id="prayerModal">
-        <div class="modal-card">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <header class="modal-header">
-                <span class="badge" id="modalCategory">Categoría</span>
-                <h2 id="modalTitle">Título</h2>
-            </header>
-            <div class="modal-body" id="modalBody"></div>
-            <footer class="modal-footer">
-                <button class="action-btn" id="copyBtn">📋 Copiar texto</button>
-            </footer>
-        </div>
-    </div>
-<script type="module" src="./assets/js/prayers.js"></script>. 
+    <!-- SCRIPT DEL MÓDULO ROSARIO -->
+    <script type="module" src="assets/js/rosary.js"></script>
 </body>
 </html>
