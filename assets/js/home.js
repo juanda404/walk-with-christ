@@ -13,8 +13,8 @@ function initPopularPrayers() {
         return;
     }
 
-    // Filtrar oraciones que tengan la propiedad popular: true
-    const populars = PRAYERS.filter(prayer => prayer.popular);
+    // Filtra las populares Y TOMA ÚNICAMENTE LAS PRIMERAS 5
+    const populars = PRAYERS.filter(prayer => prayer.popular).slice(0,5);
 
     if (populars.length === 0) {
         console.warn("No hay oraciones marcadas como popular: true en data.js");

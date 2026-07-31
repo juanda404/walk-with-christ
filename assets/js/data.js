@@ -62,16 +62,27 @@ export const PRAYERS = [
     ]
   },
   {
-    id: 'saint-michael',
-    title: 'Saint Michael the Archangel Prayer',
+    id: 'the-angelus',
+    title: 'The Angelus (Ángelus)',
     category: CATEGORIES.PROTECTION,
     tags: ['protection', 'spiritual warfare', 'archangel'],
-    icon: './assets/images/icons/cross.png',
+    icon: './assets/images/icons/angel.png',
     popular: true,
-    summary: 'Traditional prayer seeking protection against evil and spiritual harm.',
+    summary: 'A short prayer recited in memory of the Annunciation of Christ',
     content: [
-      'Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil.',
-      'May God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, cast into hell Satan and all the evil spirits who prowl about the world seeking the ruin of souls. Amen.'
+      'V. The Angel of the Lord declared unto Mary.',
+      'R. And she conceived of the Holy Spirit.',
+      'Hail Mary...',
+      'V. Behold the handmaid of the Lord.',
+      'R. Be it done unto me according to thy word.',
+      'Hail Mary...',
+      'V. And the Word was made flesh.',
+      'R. And dwelt among us.',
+      'Hail Mary...',
+      'V. Pray for us, O Holy Mother of God.',
+      'R. That we may be made worthy of the promises of Christ.',
+      'Let us pray.',
+      'Pour forth, we beseech Thee, O Lord, Thy grace into our hearts; that we, to whom the Incarnation of Christ Thy Son was made known by the message of an angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord Amen.'
     ]
   },
   {
@@ -109,5 +120,18 @@ export const PRAYERS = [
     content: [
       'O my Jesus, forgive us our sins, save us from the fires of hell, lead all souls to Heaven, especially those most in need of Thy mercy. Amen.'
     ]
+  },  {
+    id: 'saint-michael',
+    title: 'Saint Michael the Archangel Prayer',
+    category: CATEGORIES.PROTECTION,
+    tags: ['protection', 'spiritual warfare', 'archangel'],
+    icon: './assets/images/icons/cross.png',
+    popular: true,
+    summary: 'Traditional prayer seeking protection against evil and spiritual harm.',
+    content: [
+      'Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil.',
+      'May God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, cast into hell Satan and all the evil spirits who prowl about the world seeking the ruin of souls. Amen.'
+    ]
   }
+
 ];
