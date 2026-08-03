@@ -279,3 +279,38 @@
         right: 10px;
     }
 }
+
+/* ==========================================================================
+   RESOURCES RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .resources-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .resources-filter-bar {
+        gap: 0.4rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .resources-dynamic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.2rem;
+        padding: 0 4% 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .resources-dynamic-grid {
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
+    }
+
+    .card-thumbnail-container {
+        height: 160px;
+    }
+}

@@ -118,3 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.header-nav-menu');
+        menuToggle.addEventListener('click', () => {
+            // quita o pone la clase 'active' cada que haces click
+            navMenu.classList.toggle('active');
+        });

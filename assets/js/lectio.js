@@ -81,3 +81,12 @@ function renderFallbackUI() {
     gospelContainer.innerHTML = `<p>Daily reading is currently being updated. Please check back soon.</p>`;
   }
 }
+
+
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.header-nav-menu');
+        menuToggle.addEventListener('click', () => {
+            // quita o pone la clase 'active' cada que haces click
+            navMenu.classList.toggle('active');
+        });
