@@ -85,6 +85,32 @@ export const PRAYERS = [
       'Pour forth, we beseech Thee, O Lord, Thy grace into our hearts; that we, to whom the Incarnation of Christ Thy Son was made known by the message of an angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord Amen.'
     ]
   },
+{
+  id: 'chaplet-of-the-divine-mercy',
+  title: 'Chaplet of the Divine Mercy',
+  category: CATEGORIES.PROTECTION,
+  tags: ['mercy', 'jesus', 'chaplet', 'devotion', 'forgiveness'],
+  icon: './assets/images/icons/rosary.png',
+  popular: true,
+  summary: 'A powerful prayer given to St. Faustina to implore God’s mercy for the whole world',
+  content: [
+    'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',
+    'Optional Opening Prayers:',
+    'You expired, Jesus, but the source of life gushed forth for souls, and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, envelop the whole world and empty Yourself out upon us.',
+    'O Blood and Water, which gushed forth from the Heart of Jesus as a fount of mercy for us, I trust in You! (Repeat 3 times)',
+    'The Our Father.',
+    'The Hail Mary.',
+    'The Apostles\' Creed',
+    'On the large beads before each decade (The Eternal Father):',
+    'Eternal Father, I offer You the Body and Blood, Soul and Divinity of Your Dearly Beloved Son, Our Lord, Jesus Christ, in atonement for our sins and those of the whole world.',
+    'On the 10 small beads of each decade:',
+    'For the sake of His sorrowful Passion, have mercy on us and on the whole world.',
+    'Concluding Prayer (Repeat 3 times):',
+    'Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.',
+    'Optional Closing Prayer:',
+    'Eternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself. Amen.'
+  ]
+},
   {
     id: 'morning-prayer',
     title: 'Morning Prayer',
